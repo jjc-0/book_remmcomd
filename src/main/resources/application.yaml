@@ -1,0 +1,33 @@
+server:
+  port: 9090
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${ip}:3306/base?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+    username: root
+    password: 1221jjc0
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  neo4j:
+    uri: bolt://127.0.0.1:7687
+    authentication:
+      username: neo4j
+      password: 1221jjc0
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      update-strategy: IGNORED
+
+recommend:
+  alpha: 0.6
+  similar-user-count: 20
+
+ip: 127.0.0.1

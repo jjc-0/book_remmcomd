@@ -1,0 +1,135 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="混合推荐模型框架" id="hybrid">
+    <mxGraphModel dx="900" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 输入 -->
+        <mxCell id="input" value="用户交互历史 (user_id)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="30" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 分流标注 -->
+        <mxCell id="split" value="→ 已交互图书ID列表 + behavior_value →" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="250" y="72" width="280" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- 左路径标题 -->
+        <mxCell id="left_title" value="协同过滤推荐路径 (UserCF)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="90" y="95" width="200" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- 右路径标题 -->
+        <mxCell id="right_title" value="知识图谱推荐路径 (KG)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="95" width="220" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- CF步骤 -->
+        <mxCell id="cf1" value="查询 user_behavior 表&#xa;获取所有用户行为矩阵" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="125" width="160" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="cf2" value="构建用户-图书行为矩阵&#xa;(behavior_value加权)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="175" width="160" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="cf3" value="计算用户间余弦相似度&#xa;cos(a,b) = (A·B)/(|A|·|B|)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="225" width="160" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="cf4" value="取 Top-K 最相似用户" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="275" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="cf5" value="聚合Top-K用户的偏好图书&#xa;(排除已交互)→ CF候选集" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="323" width="160" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="cf6" value="Min-Max 归一化得分" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="375" width="160" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- KG步骤 -->
+        <mxCell id="kg1" value="查询用户已交互图书category_id" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="125" width="200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="kg2" value="Cypher: MATCH (b)-[:BELONGS_TO]→(c)&#xa;传播权重×3.0  获取同类图书" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="175" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="kg3" value="Cypher: 实体关联查询&#xa;(Author·Theme·Publisher·Era)&#xa;传播权重×1.0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="231" width="200" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="kg4" value="Cypher: 实体间关系传播&#xa;SIMILAR_TO/RELATED_TO/&#xa;TIME_SEQUENCE  权重×0.5" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="291" width="200" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="kg5" value="聚合三层传播结果→ KG候选集" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="351" width="200" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- 候选集汇聚 -->
+        <mxCell id="merge_arrow1" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1.5;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="422" as="sourcePoint" />
+            <mxPoint x="190" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="merge_arrow2" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1.5;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="400" as="sourcePoint" />
+            <mxPoint x="610" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 混合排序 -->
+        <mxCell id="blend" value="混合排序融合" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="500" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 公式 -->
+        <mxCell id="formula" value="score = α · CF_norm + (1-α) · KG_score × cat_pref" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="545" width="320" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="detail" value="按排序得分查询 MySQL 获取图书详情" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="575" width="220" height="34" as="geometry" />
+        </mxCell>
+
+        <mxCell id="output" value="返回 Top-N 推荐结果" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="628" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 连线 -->
+        <mxCell id="el0" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="input" target="cf1" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="el0b" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="input" target="kg1" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="el1" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="cf1" target="cf2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="el2" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="cf2" target="cf3" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="el3" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="cf3" target="cf4" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="el4" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="cf4" target="cf5" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="el5" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="cf5" target="cf6" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="ek1" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="kg1" target="kg2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ek2" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="kg2" target="kg3" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ek3" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="kg3" target="kg4" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ek4" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="kg4" target="kg5" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="eb1" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1.5;" parent="1" source="cf6" target="blend" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb2" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1.5;" parent="1" source="kg5" target="blend" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="ed1" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="blend" target="detail" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="detail" target="output" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- 右侧参数说明 -->
+        <mxCell id="param_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="580" y="480" width="220" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="param_title" value="参数说明" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="590" y="484" width="100" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="param_line" value="" style="line;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="590" y="504" width="200" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="param_text" value="α ∈ [0, 1]         融合权重系数&#xa;&#xa;CF_norm            CF得分归一化值&#xa;&#xa;KG_score          图谱传播累计得分&#xa;     (×3.0/1.0/0.5三级衰减)&#xa;&#xa;cat_pref           用户类别偏好因子&#xa;     (历史行为cat频率占比)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="590" y="508" width="200" height="136" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

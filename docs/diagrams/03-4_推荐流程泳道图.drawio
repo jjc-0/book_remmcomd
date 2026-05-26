@@ -1,0 +1,131 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="推荐业务流程" id="activity">
+    <mxGraphModel dx="750" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 开始 -->
+        <mxCell id="start" value="开始" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=11;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="370" y="30" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 用户请求 -->
+        <mxCell id="n1" value="用户发起推荐请求（携带JWT Token）" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="290" y="110" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- 身份验证 -->
+        <mxCell id="n2" value="JwtInterceptor 验证用户身份" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="290" y="170" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- 判断1 -->
+        <mxCell id="dec1" value="已登录？" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="335" y="230" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 否→冷启动 -->
+        <mxCell id="n_cold" value="随机抽取10本热门图书（冷启动）" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="550" y="245" width="190" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 是→查询行为 -->
+        <mxCell id="n3" value="查询user_behavior表获取历史交互记录" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="290" y="330" width="220" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- 判断2 -->
+        <mxCell id="dec2" value="有历史行为？" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="335" y="390" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 否→随机 -->
+        <mxCell id="n_rand" value="随机抽取图书" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="550" y="405" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 是→CF路径 -->
+        <mxCell id="n_cf1" value="计算用户间余弦相似度" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="500" width="180" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="n_cf2" value="取Top-K相似用户" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="550" width="180" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="n_cf3" value="聚合偏好生成CF候选集" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="600" width="180" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- KG路径 -->
+        <mxCell id="n_kg1" value="Cypher:BELONGS_TO类别传播（×3.0）" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="500" width="230" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="n_kg2" value="Cypher:实体关联查询（×1.0）" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="550" width="230" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="n_kg3" value="Cypher:SIMILAR_TO传播（×0.5）→KG候选集" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="600" width="230" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- 分支标签 -->
+        <mxCell id="cf_label" value="协同过滤路径(CF)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="120" y="480" width="140" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_label" value="知识图谱路径(KG)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="540" y="480" width="150" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- 混合排序 -->
+        <mxCell id="n_blend" value="混合排序融合: score = α·CF + (1-α)·KG × 类别偏好" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="680" width="320" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- 获取详情 -->
+        <mxCell id="n_detail" value="按排序ID从MySQL获取图书详情" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="740" width="320" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- 返回渲染 -->
+        <mxCell id="n_result" value="返回推荐结果列表→前端渲染" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="800" width="320" height="34" as="geometry" />
+        </mxCell>
+
+        <!-- 结束 -->
+        <mxCell id="end" value="结束" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=11;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="370" y="860" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 连线 ===== -->
+
+        <mxCell id="e1" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="start" target="n1" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n1" target="n2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n2" target="dec1" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e4" value="否" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;fontSize=10;fontStyle=1;" parent="1" source="dec1" target="n_cold" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="是" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;fontSize=10;fontStyle=1;" parent="1" source="dec1" target="n3" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e6" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n3" target="dec2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e7" value="否" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;fontSize=10;fontStyle=1;" parent="1" source="dec2" target="n_rand" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="是" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;fontSize=10;fontStyle=1;" parent="1" source="dec2" target="n_cf1" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="是" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;fontSize=10;fontStyle=1;" parent="1" source="dec2" target="n_kg1" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e10" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_cf1" target="n_cf2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_cf2" target="n_cf3" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_kg1" target="n_kg2" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_kg2" target="n_kg3" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e14" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_cf3" target="n_blend" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_kg3" target="n_blend" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e16" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;dashed=1;" parent="1" source="n_cold" target="n_result" edge="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="645" y="817" /></Array></mxGeometry></mxCell>
+        <mxCell id="e17" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;dashed=1;" parent="1" source="n_rand" target="n_result" edge="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="620" y="817" /></Array></mxGeometry></mxCell>
+
+        <mxCell id="e18" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_blend" target="n_detail" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_detail" target="n_result" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" source="n_result" target="end" edge="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

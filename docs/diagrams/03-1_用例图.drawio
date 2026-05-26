@@ -1,0 +1,167 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="系统用例图" id="usecase">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="boundary" value="图书推荐系统" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;startSize=30;container=1;collapsible=0;" parent="1" vertex="1">
+          <mxGeometry x="260" y="80" width="520" height="620" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor_user" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="80" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_user_label" value="普通用户" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="62" y="315" width="66" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="actor_admin" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="80" y="450" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_admin_label" value="管理员" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="62" y="515" width="66" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 用例 -->
+        <mxCell id="uc1" value="注册/登录" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="210" y="50" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc2" value="浏览图书" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="50" y="120" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc3" value="搜索图书" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="210" y="120" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc4" value="收藏图书" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="370" y="120" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc5" value="评分与评价" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="50" y="200" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc6" value="获取个性化推荐" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="boundary" vertex="1">
+          <mxGeometry x="210" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc7" value="查看知识图谱" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="boundary" vertex="1">
+          <mxGeometry x="370" y="200" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc8" value="加入购物车" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="50" y="290" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc9" value="下订单" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="210" y="290" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc10" value="管理收货地址" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" parent="boundary" vertex="1">
+          <mxGeometry x="50" y="380" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc11" value="图书管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="50" y="480" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc12" value="用户管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="210" y="480" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc13" value="订单管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="370" y="480" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc14" value="公告管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="50" y="550" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc15" value="轮播图管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="210" y="550" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc16" value="标签分类管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="370" y="550" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc17" value="数据统计看板" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" parent="boundary" vertex="1">
+          <mxGeometry x="160" y="380" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc18" value="知识图谱管理" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="boundary" vertex="1">
+          <mxGeometry x="310" y="380" width="110" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：普通用户 → 用例 -->
+        <mxCell id="eu1" style="endArrow=none;html=1;strokeColor=#82b366;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="actor_user" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eu2" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu3" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu4" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu5" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu6" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu7" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu8" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu9" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eu10" style="endArrow=none;html=1;strokeColor=#82b366;" parent="1" source="actor_user" target="uc10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：管理员 → 用例 -->
+        <mxCell id="ea1" style="endArrow=none;html=1;strokeColor=#d6b656;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="actor_admin" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ea2" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea5" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea6" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea7" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea8" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea9" style="endArrow=none;html=1;strokeColor=#d6b656;" parent="1" source="actor_admin" target="uc18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

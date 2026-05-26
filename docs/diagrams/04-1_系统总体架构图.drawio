@@ -1,0 +1,131 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="系统总体架构" id="arch">
+    <mxGraphModel dx="900" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 表示层 -->
+        <mxCell id="pres" value="表示层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;startSize=26;container=1;collapsible=0;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="60" y="40" width="680" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="Vue 3 前端框架" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="pres" vertex="1">
+          <mxGeometry x="30" y="40" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="Element Plus (UI组件)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="pres" vertex="1">
+          <mxGeometry x="180" y="40" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="ECharts (数据可视化)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="pres" vertex="1">
+          <mxGeometry x="330" y="40" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="Axios (HTTP通信)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="pres" vertex="1">
+          <mxGeometry x="480" y="40" width="130" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- 通信标注 -->
+        <mxCell id="comm1" value="HTTP / REST (JSON)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="300" y="165" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="comm1a" value="" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#000000;strokeWidth=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="185" as="sourcePoint" />
+            <mxPoint x="400" y="205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 业务逻辑层 -->
+        <mxCell id="biz" value="业务逻辑层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;startSize=26;container=1;collapsible=0;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="60" y="210" width="680" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1" value="Spring Boot 3.5" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="biz" vertex="1">
+          <mxGeometry x="30" y="36" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="JWT 认证拦截器" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="biz" vertex="1">
+          <mxGeometry x="190" y="36" width="120" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="CorsConfig (跨域)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="biz" vertex="1">
+          <mxGeometry x="330" y="36" width="120" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="GlobalExceptionHandler" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="biz" vertex="1">
+          <mxGeometry x="470" y="36" width="150" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- Controller 层 -->
+        <mxCell id="ctrl" value="Controller 控制器层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=1;startSize=22;container=1;collapsible=0;strokeWidth=1;dashed=1;" parent="biz" vertex="1">
+          <mxGeometry x="30" y="78" width="620" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="Book" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="15" y="32" width="55" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="Kg" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="80" y="32" width="45" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="User" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="135" y="32" width="50" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Admin" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="195" y="32" width="55" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="Orders" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="260" y="32" width="55" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="Cart" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="325" y="32" width="50" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="Collect" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="385" y="32" width="55" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="Echarts/Notice/Tag/..." style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="ctrl" vertex="1">
+          <mxGeometry x="450" y="32" width="150" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Service 层 -->
+        <mxCell id="svc" value="Service 业务服务层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=1;startSize=22;container=1;collapsible=0;strokeWidth=1;dashed=1;" parent="biz" vertex="1">
+          <mxGeometry x="30" y="146" width="620" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="图书/订单/用户/购物车服务" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="svc" vertex="1">
+          <mxGeometry x="15" y="30" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="KgRecommendService&lt;br&gt;(CF+KG混合推荐)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="svc" vertex="1">
+          <mxGeometry x="195" y="28" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="Neo4jMigrationService&lt;br&gt;(图谱数据同步)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="svc" vertex="1">
+          <mxGeometry x="385" y="28" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="TokenUtils / UserCF / CoreMath (工具类)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;" parent="svc" vertex="1">
+          <mxGeometry x="15" y="66" width="530" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- 数据层 -->
+        <mxCell id="data_top_arrow" value="MyBatis-Plus / Cypher" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="300" y="475" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data_layer" value="数据层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;startSize=26;container=1;collapsible=0;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="60" y="500" width="680" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d1" value="MySQL 8.0 (关系型)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="data_layer" vertex="1">
+          <mxGeometry x="40" y="55" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="d1t" value="用户·图书·订单·行为&lt;br&gt;收藏·购物车·地址&lt;br&gt;kg_entity·kg_relation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=9;" parent="data_layer" vertex="1">
+          <mxGeometry x="190" y="60" width="150" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d2" value="Neo4j 图数据库" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fontSize=10;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontStyle=1;" parent="data_layer" vertex="1">
+          <mxGeometry x="370" y="55" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="d2t" value="Book·Author·Category&lt;br&gt;Theme·Publisher·Era&lt;br&gt;节点关系(BELONGS_TO等)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=9;" parent="data_layer" vertex="1">
+          <mxGeometry x="520" y="60" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 同步标注 -->
+        <mxCell id="sync" value="实体数据同步" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="270" y="530" width="100" height="18" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

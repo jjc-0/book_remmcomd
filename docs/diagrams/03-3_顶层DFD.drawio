@@ -1,0 +1,121 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="顶层数据流图" id="dfd0">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="583" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===== 中心圆 ===== -->
+        <mxCell id="proc" value="图书推荐系统" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="215" width="160" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 左侧外部实体 ===== -->
+        <mxCell id="entity_user" value="普通用户" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="140" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="entity_user_tag" value="" style="endArrow=none;html=1;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="170" as="sourcePoint" />
+            <mxPoint x="80" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="entity_admin" value="管理员" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="380" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="entity_admin_tag" value="" style="endArrow=none;html=1;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="410" as="sourcePoint" />
+            <mxPoint x="80" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== 右侧数据存储 ===== -->
+        <mxCell id="ds1" value="D1  MySQL" style="shape=partialRectangle;top=0;left=0;right=0;bottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="140" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ds2" value="D2  Neo4j" style="shape=partialRectangle;top=0;left=0;right=0;bottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="380" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 用户 ⇄ 系统 ===== -->
+        <!-- 请求（实线，左→右） -->
+        <mxCell id="fu1" value="" style="endArrow=classic;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;" parent="1" source="entity_user" target="proc" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fu1t" value="浏览/搜索/收藏/评分/下单请求" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="190" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 返回（虚线，中→左，U形） -->
+        <mxCell id="fu2" value="" style="endArrow=classic;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="255" as="sourcePoint" />
+            <mxPoint x="180" y="255" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="320" y="255" />
+              <mxPoint x="250" y="255" />
+              <mxPoint x="250" y="220" />
+              <mxPoint x="180" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fu2t" value="推荐结果/图书信息/订单状态" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="243" y="175" width="72" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 管理员 ⇄ 系统 ===== -->
+        <!-- 请求 -->
+        <mxCell id="fa1" value="" style="endArrow=classic;html=1;strokeColor=#d6b656;strokeWidth=1.5;" parent="1" source="entity_admin" target="proc" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fa1t" value="管理操作请求" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="210" y="410" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 返回 -->
+        <mxCell id="fa2" value="" style="endArrow=classic;html=1;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="385" as="sourcePoint" />
+            <mxPoint x="180" y="385" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="320" y="385" />
+              <mxPoint x="250" y="385" />
+              <mxPoint x="250" y="430" />
+              <mxPoint x="180" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fa2t" value="数据报表/操作反馈" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="245" y="415" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 系统 ⇄ MySQL（双箭头） ===== -->
+        <mxCell id="fd1" value="" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#666666;strokeWidth=1.5;" parent="1" source="proc" target="ds1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fd1t" value="数据读写" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="505" y="148" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 系统 → Neo4j ===== -->
+        <mxCell id="fd2" value="" style="endArrow=classic;html=1;strokeColor=#9673a6;strokeWidth=1.5;" parent="1" source="proc" target="ds2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fd2t" value="Cypher 查询" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="505" y="380" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ===== MySQL → Neo4j（同步） ===== -->
+        <mxCell id="fsync" value="" style="endArrow=classic;html=1;strokeColor=#9673a6;strokeWidth=1;dashed=1;" parent="1" source="ds1" target="ds2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fsynct" value="实体数据同步" style="text;html=1;strokeColor=none;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="715" y="245" width="70" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

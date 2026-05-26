@@ -1,0 +1,143 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="KG三层传播" id="kg_prop">
+    <mxGraphModel dx="1600" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 起点 -->
+        <mxCell id="start" value="📗 呐喊&#xa;（用户喜欢）" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=2;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="60" width="110" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 第一层: BELONGS_TO ===== -->
+        <mxCell id="layer1_tag" value="第一层: 分类召回 ×3.0" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="150" width="220" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cat1" value="现代文学" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#E8F5E9;strokeColor=#388E3C;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="360" y="200" width="80" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="cat2" value="小说" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#E8F5E9;strokeColor=#388E3C;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="500" y="200" width="80" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rec11" value="📕 彷徨" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="280" width="90" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="rec12" value="📕 围城" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="420" y="280" width="90" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="rec13" value="📕 骆驼祥子" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="540" y="280" width="90" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- 第一层箭头 -->
+        <mxCell id="al1a" value="BELONGS_TO" style="endArrow=classic;html=1;strokeColor=#388E3C;strokeWidth=1.5;fontSize=8;fontStyle=2;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="530" y="120" as="sourcePoint" /><mxPoint x="400" y="200" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al1b" value="BELONGS_TO" style="endArrow=classic;html=1;strokeColor=#388E3C;strokeWidth=1.5;fontSize=8;fontStyle=2;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="560" y="120" as="sourcePoint" /><mxPoint x="540" y="200" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al1c" style="endArrow=classic;html=1;strokeColor=#388E3C;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="400" y="236" as="sourcePoint" /><mxPoint x="345" y="280" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al1d" style="endArrow=classic;html=1;strokeColor=#388E3C;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="460" y="236" as="sourcePoint" /><mxPoint x="465" y="280" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al1e" style="endArrow=classic;html=1;strokeColor=#388E3C;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="540" y="236" as="sourcePoint" /><mxPoint x="585" y="280" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- ===== 第二层: 实体关联 ===== -->
+        <mxCell id="layer2_tag" value="第二层: 共享实体关联 ×1.0" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="350" width="220" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent1" value="鲁迅" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFF8E1;strokeColor=#F57F17;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="400" width="80" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rec21" value="📙 朝花夕拾" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="480" width="90" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="rec22" value="📙 彷徨" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="420" y="480" width="90" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="rec23" value="📙 目送" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="540" y="480" width="90" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- 第二层箭头 -->
+        <mxCell id="al2a" value="WRITTEN_BY" style="endArrow=classic;html=1;strokeColor=#F57F17;strokeWidth=1.5;fontSize=8;fontStyle=2;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="555" y="340" as="sourcePoint" /><mxPoint x="540" y="400" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al2b" style="endArrow=classic;html=1;strokeColor=#F57F17;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="500" y="436" as="sourcePoint" /><mxPoint x="345" y="480" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al2c" style="endArrow=classic;html=1;strokeColor=#F57F17;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="520" y="436" as="sourcePoint" /><mxPoint x="465" y="480" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al2d" style="endArrow=classic;html=1;strokeColor=#F57F17;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="560" y="436" as="sourcePoint" /><mxPoint x="585" y="480" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- ===== 第三层: 实体间传播 ===== -->
+        <mxCell id="layer3_tag" value="第三层: 实体间语义扩散 ×0.5" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="550" width="240" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent1b" value="鲁迅" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFF8E1;strokeColor=#F57F17;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="360" y="600" width="70" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ent2" value="老舍" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#FFF8E1;strokeColor=#F57F17;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="600" width="70" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rec31" value="📘 骆驼祥子" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFECB3;strokeColor=#FF6F00;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="690" width="100" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="rec32" value="📘 茶馆" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFECB3;strokeColor=#FF6F00;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="440" y="690" width="90" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- 第三层箭头 -->
+        <mxCell id="al3a" value="SIMILAR_TO&#xa;weight=0.85" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=1.5;fontSize=8;fontStyle=2;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="430" y="616" as="sourcePoint" /><mxPoint x="500" y="616" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al3b" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="500" y="632" as="sourcePoint" /><mxPoint x="350" y="690" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="al3c" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=1;fontSize=8;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="520" y="632" as="sourcePoint" /><mxPoint x="485" y="690" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- 右侧说明面板 -->
+        <mxCell id="panel_title" value="三层传播汇总" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="740" y="150" width="180" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;strokeWidth=1;" parent="1" vertex="1"><mxGeometry x="740" y="190" width="20" height="20" as="geometry" /></mxCell>
+        <mxCell id="pt1" value="第一层: BELONGS_TO  ×3.0" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="1" vertex="1"><mxGeometry x="770" y="190" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="p1d" value="同类图书召回，匹配最直接" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#757575;" parent="1" vertex="1"><mxGeometry x="770" y="212" width="200" height="16" as="geometry" /></mxCell>
+
+        <mxCell id="p2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;" parent="1" vertex="1"><mxGeometry x="740" y="250" width="20" height="20" as="geometry" /></mxCell>
+        <mxCell id="pt2" value="第二层: 共享实体  ×1.0" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="1" vertex="1"><mxGeometry x="770" y="250" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="p2d" value="同作者/主题/出版社/年代" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#757575;" parent="1" vertex="1"><mxGeometry x="770" y="272" width="200" height="16" as="geometry" /></mxCell>
+
+        <mxCell id="p3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;strokeWidth=1;" parent="1" vertex="1"><mxGeometry x="740" y="310" width="20" height="20" as="geometry" /></mxCell>
+        <mxCell id="pt3" value="第三层: 语义扩散  ×0.5" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" parent="1" vertex="1"><mxGeometry x="770" y="310" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="p3d" value="SIMILAR_TO/RELATED_TO 传播" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#757575;" parent="1" vertex="1"><mxGeometry x="770" y="332" width="200" height="16" as="geometry" /></mxCell>
+
+        <mxCell id="pformula" value="最终得分 = 3.0×S₁ + 1.0×S₂ + 0.5×S₃" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#F3E5F5;strokeColor=#7B1FA2;strokeWidth=1.5;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="740" y="390" width="260" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pnote" value="● 三层独立执行，结果累加至 Map&lt;bookId,score&gt;&#xa;● 每层排除已交互图书和重复候选&#xa;● 权重递减体现传播可靠性递减&#xa;● 第三层依赖 SIMILAR_TO/RELATED_TO&#xa;   关系的 weight 属性" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#F5F5F5;strokeColor=#000000;strokeWidth=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+          <mxGeometry x="740" y="450" width="260" height="100" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

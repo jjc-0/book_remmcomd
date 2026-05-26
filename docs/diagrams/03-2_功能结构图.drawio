@@ -1,0 +1,120 @@
+<mxfile host="draw.io" modified="2026-05-24T00:00:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram name="系统功能结构图" id="architecture">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- === 表示层容器 === -->
+        <mxCell id="layer_pres" value="表示层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;startSize=28;container=1;collapsible=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="1050" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1" value="Vue 3 + Element Plus&lt;br&gt;前端应用" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" parent="layer_pres" vertex="1">
+          <mxGeometry x="30" y="40" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="首页模块&lt;br&gt;轮播图/公告/推荐" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="layer_pres" vertex="1">
+          <mxGeometry x="200" y="45" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="图书浏览&lt;br&gt;与搜索" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="layer_pres" vertex="1">
+          <mxGeometry x="340" y="45" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="图书详情页" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="layer_pres" vertex="1">
+          <mxGeometry x="460" y="45" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" value="知识图谱&lt;br&gt;可视化" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="layer_pres" vertex="1">
+          <mxGeometry x="570" y="45" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" value="个人中心&lt;br&gt;收藏/地址/订单" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="layer_pres" vertex="1">
+          <mxGeometry x="680" y="45" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p7" value="管理后台&lt;br&gt;面板" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#f8cecc;strokeColor=#b85450;" parent="layer_pres" vertex="1">
+          <mxGeometry x="800" y="45" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- === 业务逻辑层容器 === -->
+        <mxCell id="layer_biz" value="业务逻辑层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;startSize=28;container=1;collapsible=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="200" width="1050" height="310" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1" value="图书管理模块" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;" parent="layer_biz" vertex="1">
+          <mxGeometry x="30" y="40" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="用户认证模块&lt;br&gt;JWT + 拦截器" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;" parent="layer_biz" vertex="1">
+          <mxGeometry x="160" y="40" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="收藏与评分模块" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;" parent="layer_biz" vertex="1">
+          <mxGeometry x="290" y="40" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="购物车&lt;br&gt;与订单模块" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;" parent="layer_biz" vertex="1">
+          <mxGeometry x="420" y="40" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" value="混合推荐引擎" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" parent="layer_biz" vertex="1">
+          <mxGeometry x="560" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="b6" value="知识图谱模块" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="layer_biz" vertex="1">
+          <mxGeometry x="710" y="40" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="b7" value="数据统计模块&lt;br&gt;ECharts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;" parent="layer_biz" vertex="1">
+          <mxGeometry x="840" y="40" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 推荐引擎子层 -->
+        <mxCell id="rec_sub" value="推荐引擎子层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9673a6;fontSize=11;fontStyle=1;startSize=24;container=1;collapsible=0;dashed=1;" parent="layer_biz" vertex="1">
+          <mxGeometry x="560" y="110" width="390" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="rec1" value="协同过滤 CF&lt;br&gt;UserCF + 余弦相似度" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="rec_sub" vertex="1">
+          <mxGeometry x="20" y="40" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rec2" value="知识图谱推荐 KG&lt;br&gt;Cypher 多策略查询" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="rec_sub" vertex="1">
+          <mxGeometry x="200" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rec3" value="混合排序融合层&lt;br&gt;α·CF + (1-α)·KG × 类别偏好" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" parent="rec_sub" vertex="1">
+          <mxGeometry x="80" y="110" width="220" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- 推荐引擎内部连线 -->
+        <mxCell id="rec_e1" style="endArrow=classic;html=1;strokeColor=#666666;" parent="rec_sub" source="rec1" target="rec3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rec_e2" style="endArrow=classic;html=1;strokeColor=#666666;" parent="rec_sub" source="rec2" target="rec3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- === 数据层容器 === -->
+        <mxCell id="layer_data" value="数据层" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;startSize=28;container=1;collapsible=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="540" width="1050" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d1" value="MySQL 8.0&lt;br&gt;用户/图书/订单/行为" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" parent="layer_data" vertex="1">
+          <mxGeometry x="60" y="40" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="Neo4j 图数据库&lt;br&gt;知识图谱节点&amp;关系" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=10;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="layer_data" vertex="1">
+          <mxGeometry x="300" y="40" width="160" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- 知识图谱模式说明 -->
+        <mxCell id="kg_schema" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9673a6;dashed=1;" parent="layer_data" vertex="1">
+          <mxGeometry x="520" y="35" width="480" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kg_schema_text" value="知识图谱模式:&lt;br&gt;Book → [BELONGS_TO | WRITTEN_BY | ABOUT | PUBLISHED_BY | WRITTEN_IN] → Entity&lt;br&gt;Entity → [SIMILAR_TO | RELATED_TO] → Entity" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=10;" parent="layer_data" vertex="1">
+          <mxGeometry x="530" y="45" width="460" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 层间连线（核心） -->
+        <mxCell id="layer_e1" style="endArrow=classic;html=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" parent="1" source="layer_pres" target="layer_biz" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="layer_e2" style="endArrow=classic;html=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" parent="1" source="layer_biz" target="layer_data" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 重点标注：推荐引擎→Neo4j -->
+        <mxCell id="key_e" style="endArrow=classic;html=1;strokeColor=#9673a6;strokeWidth=2;" parent="1" source="b5" target="d2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
