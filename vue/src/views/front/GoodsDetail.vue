@@ -713,14 +713,21 @@ onMounted(() => {
   padding: 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   border: 1px solid #ebeef5;
+  overflow: hidden;
+}
+
+.product-tabs :deep(.el-tabs__content) {
+  overflow: hidden;
 }
 
 .detail-section {
   padding: 8px 0;
+  overflow: hidden;
 }
 
 .detail-block {
   margin-bottom: 32px;
+  overflow: hidden;
 }
 
 .detail-block:last-child {
@@ -750,6 +757,14 @@ onMounted(() => {
   word-break: break-all;
   overflow-wrap: break-word;
   overflow: hidden;
+  max-width: 100%;
+}
+
+.detail-content :deep(*) {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .detail-content :deep(img) {
@@ -761,6 +776,11 @@ onMounted(() => {
   max-width: 100%;
   display: block;
   overflow-x: auto;
+}
+
+.detail-content :deep(pre) {
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .detail-text {
