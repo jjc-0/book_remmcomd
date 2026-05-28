@@ -4,6 +4,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { projectName } from '../../config/config.default'
 import {User, Lock, SwitchButton, Search, Connection} from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
+import logoSvg from '@/assets/logo.svg'
 
 // 路由实例
 const router = useRouter()
@@ -48,7 +49,7 @@ const clearSearch = () => {
       <div class="header-left-warp" @click="$router.push('/front/home')">
         <div class="logo-warp">
           <div class="logo">
-            <img src="../../config/logo.svg" alt="Logo" />
+            <img :src="logoSvg" alt="Logo" />
           </div>
           <div class="logo-text">{{ projectName }}</div>
         </div>

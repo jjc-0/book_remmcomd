@@ -5,6 +5,7 @@ import {projectName} from '../../config/config.default'
 import {User, Lock, Key, Reading, Collection, Notebook} from '@element-plus/icons-vue'
 import {ElMessage} from 'element-plus'
 import request from "@/utils/request.js";
+import logoSvg from '@/assets/logo.svg'
 
 // 路由实例
 const router = useRouter()
@@ -79,7 +80,7 @@ const login = () => {
       <div class="login-left">
         <div class="brand-logo">
           <div class="logo-circle">
-            <img src="../../config/logo.svg" alt="Logo" class="logo-image" />
+            <img :src="logoSvg" alt="Logo" class="logo-image" />
             <Key class="logo-icon" />
           </div>
           <h2 class="brand-name">{{ projectName }}</h2>
@@ -114,7 +115,7 @@ const login = () => {
           </div>
         </div>
         <div class="login-footer">
-          <p>© {{ new Date().getFullYear() }} {{ projectName }}. 保留所有权利</p>
+          <p>{{ projectName }}</p>
         </div>
       </div>
 

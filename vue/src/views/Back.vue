@@ -4,6 +4,7 @@ import { useRouter, useRoute } from 'vue-router'
 import {User, Lock, SwitchButton, House, UserFilled,Notification,Picture,Star,Location,Document,Goods,Setting,PieChart,Connection,DataAnalysis} from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { projectName } from '../../config/config.default'
+import logoSvg from '@/assets/logo.svg'
 
 // 路由实例
 const router = useRouter()
@@ -63,7 +64,7 @@ const handleUpdateAccount = (updatedAccount) => {
     <header class="admin-header">
       <div class="header-left">
         <div class="logo-container" :style="{ width: sideWidth + 'px' }" @click="openThemeDrawer">
-          <img src="../../config/logo.svg" alt="Logo" class="logo-image" />
+          <img :src="logoSvg" alt="Logo" class="logo-image" />
           <h1 class="logo-text" v-show="logoTextShow">{{ projectName }}</h1>
         </div>
       </div>
