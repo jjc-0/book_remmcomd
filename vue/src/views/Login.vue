@@ -2,10 +2,9 @@
 import {ref, reactive} from 'vue'
 import {useRouter} from 'vue-router'
 import {projectName} from '../../config/config.default'
-import {User, Lock, Key, Reading, Collection, Notebook} from '@element-plus/icons-vue'
+import {User, Lock, Reading, Collection, Notebook} from '@element-plus/icons-vue'
 import {ElMessage} from 'element-plus'
 import request from "@/utils/request.js";
-import logoSvg from '@/assets/logo.svg'
 
 // 路由实例
 const router = useRouter()
@@ -80,8 +79,7 @@ const login = () => {
       <div class="login-left">
         <div class="brand-logo">
           <div class="logo-circle">
-            <img :src="logoSvg" alt="Logo" class="logo-image" />
-            <Key class="logo-icon" />
+            <el-icon :size="24"><Reading /></el-icon>
           </div>
           <h2 class="brand-name">{{ projectName }}</h2>
         </div>
@@ -292,13 +290,7 @@ const login = () => {
     justify-content: center;
     align-items: center;
     margin-right: 12px;
-
-    .logo-image {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
+    color: #fff;
   }
 
   .brand-name {

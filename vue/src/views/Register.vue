@@ -5,7 +5,6 @@ import {projectName} from '../../config/config.default'
 import {User, Lock, Key, DataAnalysis} from '@element-plus/icons-vue'
 import {ElMessage} from 'element-plus'
 import request from "@/utils/request.js";
-import logoSvg from '@/assets/logo.svg'
 
 // 路由实例
 const router = useRouter()
@@ -95,7 +94,7 @@ const register = () => {
       <div class="register-left">
         <div class="brand-logo">
           <div class="logo-circle">
-            <img :src="logoSvg" alt="Logo" class="logo-image" />
+            <el-icon :size="24"><User /></el-icon>
           </div>
           <h2 class="brand-name">{{ projectName }}</h2>
         </div>

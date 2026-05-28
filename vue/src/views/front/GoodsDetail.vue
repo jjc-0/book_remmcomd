@@ -747,6 +747,20 @@ onMounted(() => {
   color: #606266;
   line-height: 1.9;
   font-size: 14px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+.detail-content :deep(img) {
+  max-width: 100%;
+  height: auto;
+}
+
+.detail-content :deep(table) {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
 }
 
 .detail-text {
