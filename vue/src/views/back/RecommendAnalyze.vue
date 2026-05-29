@@ -16,7 +16,7 @@ const gaugeContainer = ref(null)
 const selectedUserId = ref(1)
 const userList = ref([])
 const loading = ref(false)
-const alphaValue = ref(0.3)
+const alphaValue = ref(0.6)
 const scoreData = ref(null)
 const behaviorData = ref(null)
 
@@ -42,9 +42,17 @@ const loadUsers = () => {
   })
 }
 
+const syncAlpha = () => {
+  return request.get('/kg/alpha').then(res => {
+    if (res.data && res.data.alpha != null) {
+      alphaValue.value = res.data.cfWeight || res.data.alpha
+    }
+  }).catch(() => {})
+}
+
 const loadAll = () => {
   loading.value = true
-  loadUsers().then(() => {
+  syncAlpha().then(() => loadUsers()).then(() => {
     return Promise.all([
       request.get('/kg/analyze/similarity'),
       request.get('/kg/analyze/scores', { params: { userId: selectedUserId.value, alpha: alphaValue.value } }),
@@ -53,7 +61,6 @@ const loadAll = () => {
   }).then(([simRes, scoreRes, behaviorRes]) => {
     scoreData.value = scoreRes.data
     behaviorData.value = behaviorRes.data
-    alphaValue.value = scoreRes.data.cfWeight || 0.3
     try { renderHeatmap(simRes.data) } catch (e) { console.error('热力图渲染失败:', e) }
     try { renderBarChart() } catch (e) { console.error('柱状图渲染失败:', e) }
     try { renderPieChart() } catch (e) { console.error('饼图渲染失败:', e) }
@@ -68,9 +75,11 @@ const loadAll = () => {
 
 const setAlpha = (val) => {
   const newAlpha = Math.round(val * 100) / 100
-  alphaValue.value = newAlpha
   renderGauge()
-  request.get('/kg/analyze/scores', { params: { userId: selectedUserId.value, alpha: newAlpha } }).then(res => {
+  request.put('/kg/alpha', { alpha: newAlpha }).then(alphaRes => {
+    alphaValue.value = alphaRes.data.cfWeight || newAlpha
+    return request.get('/kg/analyze/scores', { params: { userId: selectedUserId.value, alpha: alphaValue.value } })
+  }).then(res => {
     scoreData.value = res.data
     renderBarChart()
   }).catch(() => {

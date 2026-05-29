@@ -92,6 +92,32 @@ public class KgController {
     }
 
     @AuthAccess
+    @GetMapping("/alpha")
+    public Result getAlpha() {
+        Map<String, Object> data = new LinkedHashMap<>();
+        double alpha = recommendService.getAlpha();
+        data.put("alpha", alpha);
+        data.put("cfWeight", Math.round(alpha * 100.0) / 100.0);
+        data.put("kgWeight", Math.round((1.0 - alpha) * 100.0) / 100.0);
+        return Result.success(data);
+    }
+
+    @AuthAccess
+    @PutMapping("/alpha")
+    public Result setAlpha(@RequestBody Map<String, Double> body) {
+        Double alpha = body.get("alpha");
+        if (alpha == null || alpha < 0 || alpha > 1) {
+            return Result.error("400", "alpha必须在0到1之间");
+        }
+        recommendService.setAlpha(alpha);
+        Map<String, Object> data = new LinkedHashMap<>();
+        data.put("alpha", recommendService.getAlpha());
+        data.put("cfWeight", Math.round(recommendService.getAlpha() * 100.0) / 100.0);
+        data.put("kgWeight", Math.round((1.0 - recommendService.getAlpha()) * 100.0) / 100.0);
+        return Result.success(data);
+    }
+
+    @AuthAccess
     @GetMapping("/analyze/similarity")
     public Result analyzeSimilarity(@RequestParam(defaultValue = "8") int topN) {
         List<UserBehavior> allBehaviors = userBehaviorService.list();

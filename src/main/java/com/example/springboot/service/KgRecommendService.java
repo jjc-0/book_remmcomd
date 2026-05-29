@@ -23,6 +23,8 @@ public class KgRecommendService {
     @Value("${recommend.alpha:0.3}")
     private double defaultAlpha;
 
+    private volatile double currentAlpha = -1;
+
     @Resource
     private Neo4jClient neo4jClient;
     @Resource
@@ -31,6 +33,16 @@ public class KgRecommendService {
     private IBookService bookService;
     @Resource
     private IBookCategoryService bookCategoryService;
+
+    public double getAlpha() {
+        if (currentAlpha < 0) return defaultAlpha;
+        return currentAlpha;
+    }
+
+    public void setAlpha(double alpha) {
+        this.currentAlpha = Math.max(0.0, Math.min(1.0, alpha));
+        log.info("全局Alpha已更新: {}", this.currentAlpha);
+    }
 
     public List<Book> recommend(Integer userId, int limit) {
         Set<Integer> interacted = getUserInteractedBooks(userId);
@@ -46,7 +58,8 @@ public class KgRecommendService {
         }
 
         Set<Integer> preferredCatIds = catPref.keySet();
-        List<Candidate> candidates = buildCandidates(userId, interacted, catPref, preferredCatIds, defaultAlpha);
+        double alpha = getAlpha();
+        List<Candidate> candidates = buildCandidates(userId, interacted, catPref, preferredCatIds, alpha);
 
         List<Book> result = new ArrayList<>();
         Set<Integer> seen = new HashSet<>();
@@ -63,7 +76,7 @@ public class KgRecommendService {
         if (result.size() < limit) {
             Set<Integer> filled = new HashSet<>(seen);
             filled.addAll(interacted);
-            List<Candidate> extra = buildCandidates(userId, interacted, catPref, preferredCatIds, defaultAlpha);
+            List<Candidate> extra = buildCandidates(userId, interacted, catPref, preferredCatIds, alpha);
             for (Candidate c : extra) {
                 if (filled.contains(c.bookId)) continue;
                 Book b = bookService.getById(c.bookId);
