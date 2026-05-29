@@ -191,7 +191,13 @@ public class KgController {
         }
 
         Map<Integer, Double> catPref = recommendService.computeCategoryPreference(interactedBookIds);
-        List<KgRecommendService.Candidate> candidates = recommendService.buildCandidates(userId, interactedBookIds, catPref, alpha);
+        if (catPref.isEmpty()) {
+            result.put("items", new JSONArray());
+            result.put("warning", "用户交互图书的类别信息缺失，无法计算推荐得分");
+            return Result.success(result);
+        }
+        Set<Integer> preferredCatIds = catPref.keySet();
+        List<KgRecommendService.Candidate> candidates = recommendService.buildCandidates(userId, interactedBookIds, catPref, preferredCatIds, alpha);
 
         JSONArray items = new JSONArray();
         int count = 0;

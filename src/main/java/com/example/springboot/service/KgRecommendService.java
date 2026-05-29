@@ -34,10 +34,19 @@ public class KgRecommendService {
 
     public List<Book> recommend(Integer userId, int limit) {
         Set<Integer> interacted = getUserInteractedBooks(userId);
-        if (interacted.isEmpty()) return getRandomBooks(limit);
+        if (interacted.isEmpty()) {
+            log.info("推荐 userId={}: 无行为数据，返回随机", userId);
+            return getRandomBooks(limit);
+        }
 
         Map<Integer, Double> catPref = computeCategoryPreference(interacted);
-        List<Candidate> candidates = buildCandidates(userId, interacted, catPref, defaultAlpha);
+        if (catPref.isEmpty()) {
+            log.warn("推荐 userId={}: 所有交互图书的类别信息缺失，返回随机兜底", userId);
+            return getRandomBooks(limit);
+        }
+
+        Set<Integer> preferredCatIds = catPref.keySet();
+        List<Candidate> candidates = buildCandidates(userId, interacted, catPref, preferredCatIds, defaultAlpha);
 
         List<Book> result = new ArrayList<>();
         Set<Integer> seen = new HashSet<>();
@@ -54,7 +63,7 @@ public class KgRecommendService {
         if (result.size() < limit) {
             Set<Integer> filled = new HashSet<>(seen);
             filled.addAll(interacted);
-            List<Candidate> extra = buildCandidates(userId, interacted, catPref, defaultAlpha);
+            List<Candidate> extra = buildCandidates(userId, interacted, catPref, preferredCatIds, defaultAlpha);
             for (Candidate c : extra) {
                 if (filled.contains(c.bookId)) continue;
                 Book b = bookService.getById(c.bookId);
@@ -77,7 +86,9 @@ public class KgRecommendService {
         return result;
     }
 
-    public List<Candidate> buildCandidates(Integer userId, Set<Integer> interacted, Map<Integer, Double> catPref, double alpha) {
+    public List<Candidate> buildCandidates(Integer userId, Set<Integer> interacted,
+                                           Map<Integer, Double> catPref,
+                                           Set<Integer> preferredCatIds, double alpha) {
         List<Integer> likedIds = new ArrayList<>(getLikedBookIds(userId));
 
         Map<Integer, Double> kg = recommendByKG(likedIds, interacted, 30);
@@ -102,20 +113,28 @@ public class KgRecommendService {
             double baseScore = alpha * cfN + (1.0 - alpha) * kgN;
             double score;
             String source;
-            if (inKG && inCF) {
-                score = catFactor > 0 ? baseScore * (1.0 + 2.0 * catFactor) / 3.0 : baseScore * 0.1;
+            if (catFactor <= 0) {
+                score = baseScore * 0.001;
+                source = inKG && inCF ? "KG+CF(OFF)" : inKG ? "KG(OFF)" : "CF(OFF)";
+            } else if (inKG && inCF) {
+                score = baseScore * (1.0 + 2.0 * catFactor) / 3.0;
                 source = "KG+CF";
             } else if (inKG) {
-                score = catFactor > 0 ? baseScore * (1.0 + 2.0 * catFactor) / 3.0 : baseScore * 0.1;
+                score = baseScore * (0.6 + 0.4 * catFactor) / 3.0;
                 source = "KG";
             } else {
-                score = catFactor > 0 ? baseScore * (1.0 + 2.0 * catFactor) / 3.0 : baseScore * 0.05;
+                score = baseScore * (0.3 + 0.2 * catFactor) / 3.0;
                 source = "CF";
             }
             candidates.add(new Candidate(bid, score, kgN, cfN, source, b.getCategoryId()));
         }
 
         candidates.sort((a, b) -> Double.compare(b.score, a.score));
+        log.info("buildCandidates: 总数={}, 偏好类别={}, 最终候选前5: {}",
+                candidates.size(), preferredCatIds.size(),
+                candidates.stream().limit(5)
+                        .map(c -> c.bookId + "(" + c.source + ":" + String.format("%.4f", c.score) + ")")
+                        .collect(Collectors.toList()));
         return candidates;
     }
 
