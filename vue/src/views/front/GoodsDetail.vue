@@ -71,6 +71,14 @@ const getImageList = (imgString) => {
   return imgString.split(',');
 };
 
+const formatDate = (date) => {
+  if (!date) return '';
+  if (Array.isArray(date)) {
+    return `${date[0]}-${String(date[1]).padStart(2, '0')}-${String(date[2]).padStart(2, '0')}`;
+  }
+  return date;
+};
+
 const getAuthorIntro = (author) => {
   const intros = {
     '鲁迅': '鲁迅（1881-1936），原名周树人，浙江绍兴人。中国现代文学的奠基人，伟大的文学家、思想家、革命家。代表作有《呐喊》《彷徨》《朝花夕拾》等，其作品深刻揭示了社会矛盾，对中国现代文学产生了深远影响。',
@@ -202,7 +210,7 @@ onMounted(() => {
           </div>
           <div class="info-item">
             <span class="info-label">出版日期：</span>
-            <span class="info-value">{{ goods.publishDate }}</span>
+            <span class="info-value">{{ formatDate(goods.publishDate) }}</span>
           </div>
           <div class="info-item">
             <span class="info-label">ISBN：</span>
@@ -300,7 +308,7 @@ onMounted(() => {
               </div>
               <div class="spec-row">
                 <span class="spec-label">出版日期</span>
-                <span class="spec-value">{{ goods.publishDate }}</span>
+                <span class="spec-value">{{ formatDate(goods.publishDate) }}</span>
               </div>
               <div class="spec-row">
                 <span class="spec-label">I S B N</span>
@@ -498,6 +506,8 @@ onMounted(() => {
   background: transparent;
   border-radius: 0;
   box-shadow: none;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .product-title {
@@ -506,6 +516,8 @@ onMounted(() => {
   margin-bottom: 12px;
   color: #303133;
   letter-spacing: 0.5px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .product-description {
@@ -543,7 +555,8 @@ onMounted(() => {
 .book-info-section {
   margin-bottom: 20px;
   padding: 16px;
-  background: #f5f7fa;
+  background: #ffffff;
+  border: 1px solid #ebeef5;
   border-radius: 10px;
 }
 
@@ -558,7 +571,8 @@ onMounted(() => {
 }
 
 .info-label {
-  min-width: 80px;
+  min-width: 70px;
+  flex-shrink: 0;
   color: #909399;
   font-weight: 500;
 }
@@ -566,6 +580,9 @@ onMounted(() => {
 .info-value {
   color: #303133;
   flex: 1;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .stats-section {
@@ -593,20 +610,25 @@ onMounted(() => {
   margin-bottom: 12px;
   font-size: 13px;
   color: #606266 !important;
+  min-width: 0;
 }
 
 .delivery-icon {
   margin-right: 6px;
   font-size: 18px;
   color: #4084d9;
+  flex-shrink: 0;
 }
 
 .delivery-text {
   margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .address-select {
-  width: 400px;
+  flex: 1;
+  min-width: 0;
+  max-width: 360px;
 }
 
 .shipping-section {
@@ -818,6 +840,9 @@ onMounted(() => {
 .spec-value {
   color: #303133;
   flex: 1;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .spec-price {
