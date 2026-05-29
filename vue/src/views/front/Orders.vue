@@ -359,9 +359,7 @@ const editorConfig = {
                 :class="{ 'selected': selectedPaymentMethod === 'wechat' }"
                 @click="selectedPaymentMethod = 'wechat'">
               <div class="payment-method-content">
-                <img src="https://th.bing.com/th/id/R.633a9a03ffe3e8083fb0f84cae42e209?rik=Ena9epHbP5MQkw&riu=http%3a%2f%2fimages.shejidaren.com%2fwp-content%2fuploads%2f2020%2f03%2f36365.jpg&ehk=nO5ZOTbmUWFgAe183zIsdBY0gWDyZdPYV%2fq%2bQktxD48%3d&risl=&pid=ImgRaw&r=0"
-                     alt="微信支付"
-                     class="payment-logo">
+                <img src="http://127.0.0.1:9090/files/wechat.svg" alt="微信支付" class="payment-logo">
                 <span class="payment-name">微信支付</span>
               </div>
               <div class="payment-check">
@@ -374,9 +372,7 @@ const editorConfig = {
                 :class="{ 'selected': selectedPaymentMethod === 'alipay' }"
                 @click="selectedPaymentMethod = 'alipay'">
               <div class="payment-method-content">
-                <img src="https://sj-fd.zol-img.com.cn/g6/M00/04/06/ChMkKV-3JLCIXJl7AABVjFNnetkAAFkFwJcDRIAAFWk625.png"
-                     alt="支付宝"
-                     class="payment-logo">
+                <img src="http://127.0.0.1:9090/files/alipay.svg" alt="支付宝" class="payment-logo">
                 <span class="payment-name">支付宝</span>
               </div>
               <div class="payment-check">
@@ -389,9 +385,7 @@ const editorConfig = {
                 :class="{ 'selected': selectedPaymentMethod === 'unionpay' }"
                 @click="selectedPaymentMethod = 'unionpay'">
               <div class="payment-method-content">
-                <img src="https://so1.360tres.com/t01d085e617d8fcdbdd.jpg"
-                     alt="银联支付"
-                     class="payment-logo">
+                <img src="http://127.0.0.1:9090/files/unionpay.svg" alt="银联支付" class="payment-logo">
                 <span class="payment-name">银联支付</span>
               </div>
               <div class="payment-check">
