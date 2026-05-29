@@ -1,7 +1,5 @@
 package com.example.springboot.controller;
 
-import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -10,15 +8,9 @@ import com.example.springboot.config.interceptor.AuthAccess;
 import com.example.springboot.entity.Account;
 import com.example.springboot.entity.Book;
 import com.example.springboot.entity.BookCategory;
-import com.example.springboot.entity.BookEntity;
-import com.example.springboot.entity.KgEntity;
-import com.example.springboot.entity.KgRelation;
 import com.example.springboot.entity.UserBehavior;
 import com.example.springboot.service.IBookCategoryService;
-import com.example.springboot.service.IBookEntityService;
 import com.example.springboot.service.IBookService;
-import com.example.springboot.service.IKgEntityService;
-import com.example.springboot.service.IKgRelationService;
 import com.example.springboot.service.IUserBehaviorService;
 import com.example.springboot.service.KgRecommendService;
 import com.example.springboot.utils.TokenUtils;
@@ -36,12 +28,6 @@ public class BookController {
     private IBookService bookService;
     @Resource
     private IBookCategoryService bookCategoryService;
-    @Resource
-    private IKgEntityService kgEntityService;
-    @Resource
-    private IKgRelationService kgRelationService;
-    @Resource
-    private IBookEntityService bookEntityService;
     @Resource
     private IUserBehaviorService userBehaviorService;
     @Resource
