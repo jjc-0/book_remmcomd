@@ -50,7 +50,7 @@ public class KgController {
     @GetMapping("/recommend")
     public Result recommend() {
         Account currentUser = TokenUtils.getCurrentUser();
-        if (currentUser == null) {
+        if (currentUser == null || !"ROLE_USER".equals(currentUser.getRole())) {
             return Result.success(recommendService.getRandomBooks(10));
         }
         return Result.success(recommendService.recommend(currentUser.getId(), 10));

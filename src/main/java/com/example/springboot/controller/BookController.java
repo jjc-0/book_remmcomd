@@ -113,7 +113,7 @@ public class BookController {
     @GetMapping("/recommend")
     public Result recommend() {
         Account currentUser = TokenUtils.getCurrentUser();
-        if (currentUser == null) {
+        if (currentUser == null || !"ROLE_USER".equals(currentUser.getRole())) {
             return Result.success(kgRecommendService.getRandomBooks(10));
         }
         return Result.success(kgRecommendService.recommend(currentUser.getId(), 10));
@@ -191,7 +191,7 @@ public class BookController {
 
     private void recordBehavior(Integer bookId, String behaviorType, Integer behaviorValue) {
         Account currentUser = TokenUtils.getCurrentUser();
-        if (currentUser == null) return;
+        if (currentUser == null || !"ROLE_USER".equals(currentUser.getRole())) return;
 
         LambdaQueryWrapper<UserBehavior> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(UserBehavior::getUserId, currentUser.getId())

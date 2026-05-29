@@ -144,6 +144,8 @@ public class CollectController {
     }
 
     private void recordBehavior(Integer userId, Integer bookId, String behaviorType, Integer behaviorValue) {
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (currentUser == null || !"ROLE_USER".equals(currentUser.getRole())) return;
         LambdaQueryWrapper<UserBehavior> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(UserBehavior::getUserId, userId)
                .eq(UserBehavior::getBookId, bookId)
