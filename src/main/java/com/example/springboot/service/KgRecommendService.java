@@ -46,7 +46,7 @@ public class KgRecommendService {
 
     public List<Book> recommend(Integer userId, int limit) {
         Set<Integer> interacted = getUserInteractedBooks(userId);
-        if (interacted.isEmpty()) {
+        if (interacted.isEmpty()) {//数据稀疏
             log.info("推荐 userId={}: 无行为数据，返回随机", userId);
             return getRandomBooks(limit);
         }
@@ -99,7 +99,7 @@ public class KgRecommendService {
         return result;
     }
 
-    public List<Candidate> buildCandidates(Integer userId, Set<Integer> interacted,
+    public List<Candidate> buildCandidates(Integer userId, Set<Integer> interacted,//融合打分
                                            Map<Integer, Double> catPref,
                                            Set<Integer> preferredCatIds, double alpha) {
         List<Integer> likedIds = new ArrayList<>(getLikedBookIds(userId));
@@ -151,7 +151,7 @@ public class KgRecommendService {
         return candidates;
     }
 
-    public Map<Integer, Double> computeCategoryPreference(Set<Integer> interactedBookIds) {
+    public Map<Integer, Double> computeCategoryPreference(Set<Integer> interactedBookIds) {//计算类别偏好
         Map<Integer, Integer> count = new HashMap<>();
         int total = 0;
         for (Integer bid : interactedBookIds) {
